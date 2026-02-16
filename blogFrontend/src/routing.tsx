@@ -3,8 +3,13 @@ import Admin from "./pages/Admin";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import Login from "./pages/LogIn";
+import Layout from "./components/Layout";
 
 const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Layout />,
+        children: [
     {
         path: "/",
         element: <Blog />
@@ -21,6 +26,9 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />
     }
+        ]
+    }
+
 ])
 
 export default router;
