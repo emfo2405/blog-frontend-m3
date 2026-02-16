@@ -5,6 +5,7 @@ import BlogPost from "./pages/BlogPost";
 import Login from "./pages/LogIn";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
+import ProtectedRoute from "./components/ProtectedRoutes";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,12 @@ const router = createBrowserRouter([
     },
     {
         path: "/admin",
-        element: <Admin />
+        element: (
+            <ProtectedRoute>
+              <Admin />  
+            </ProtectedRoute>
+        )
+        
     },
     {
         path: "/login",

@@ -16,7 +16,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     const login = async(credentials: LoginCredentials) => {
 
 try {
-const res = await fetch ("https://blogposts-frontendm3.onrender.com/admin/login/", {
+const res = await fetch ("https://blogposts-frontendm3.onrender.com/api/token/", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -31,6 +31,7 @@ const data = await res.json() as AuthResponse;
 localStorage.setItem("token", data.token);
 
 setUser(data.user);
+
 
 } catch(error) {
     throw error;
