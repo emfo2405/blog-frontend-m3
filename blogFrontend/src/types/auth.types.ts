@@ -1,7 +1,7 @@
 export interface User {
     id: string, 
     email: string,
-    name: string
+    username: string
 }
 
 export interface LoginCredentials {
@@ -10,8 +10,8 @@ export interface LoginCredentials {
 }
 
 export interface AuthResponse {
-    user: User,
-    token: string
+    access: string,
+    refresh: string
 }
 
 export interface AuthContextType {

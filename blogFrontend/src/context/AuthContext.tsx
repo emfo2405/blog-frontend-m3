@@ -28,9 +28,13 @@ if(!res.ok) throw new Error("Inloggningen misslyckades");
 
 const data = await res.json() as AuthResponse;
 
-localStorage.setItem("token", data.token);
+//Spara token
+localStorage.setItem("token", data.access);
 
-setUser(data.user);
+//Spara refresh för att kunna förnya token
+localStorage.setItem("refresh", data.refresh);
+
+setUser({id: "", email: "", username: credentials.username});
 
 
 } catch(error) {
