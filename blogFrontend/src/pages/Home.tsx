@@ -5,7 +5,7 @@ function Home() {
 
   return (
     <>
-    <h1>Välkommen till bloggpost!</h1>
+    <h1>Välkommen till startsidan!</h1>
     </>
   )
 }
