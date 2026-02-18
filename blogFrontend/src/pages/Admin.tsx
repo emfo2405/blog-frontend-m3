@@ -1,13 +1,16 @@
 import { useState } from 'react'
 import type { Post, NewPost, ErrorData } from '../types/auth.types'
+import { useNavigate } from 'react-router-dom';
 
 
 
 function Admin() {
   const [post, setPost] = useState<Post[] | []>([]);
   const [error, setError] = useState<ErrorData>({});
+  const navigate = useNavigate();
 
-const [newPost, setNewPost] = useState<NewPost>({title:"", content:"", image:null})
+const [newPost, setNewPost] = useState<NewPost>({title:"", content:"", image:""})
+const token = localStorage.getItem("token");
 
 const validateInput = ((data: NewPost) => {
 
@@ -18,7 +21,7 @@ const validateInput = ((data: NewPost) => {
   }
 
   if(data.content.length <3) {
-    validationErrors.title = "Skriv ett innehåll längre än 3 tecken!";
+    validationErrors.content = "Skriv ett innehåll längre än 3 tecken!";
   }
 
   return validationErrors;
@@ -35,7 +38,8 @@ const submitForm = ((event:any) => {
     setError({});
 
     addPost(newPost);
-    setNewPost({title:"", content:"", image:null});
+    setNewPost({title:"", content:"", image:""
+    });
   }
 })
 
@@ -44,9 +48,10 @@ const submitForm = ((event:any) => {
       const resp = await fetch("https://blogposts-frontendm3.onrender.com/api/post/", {
         method: 'POST',
         headers: {
+          "Authorization": `Bearer ${token}`,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(newPost),
+        body: JSON.stringify(newPost)
       });
 
       if(!resp.ok){
@@ -54,6 +59,7 @@ const submitForm = ((event:any) => {
       } else {
         const addedPost: Post = await resp.json();
         setPost((oldPosts) => [...oldPosts, addedPost]);
+        navigate("/blog");
 
       }
 
@@ -78,9 +84,9 @@ const submitForm = ((event:any) => {
         <input type='text' id='content' name='content' required value={newPost.content} onChange={(e) => setNewPost({...newPost, content: e.target.value})}></input><br/>
 
         <label htmlFor='image'>Bild:</label><br/>
-        <input type='file' id='image' name='image' onChange={(e) => setNewPost({...newPost, image: e.target.files ? e.target.files[0] : null})}></input><br/>
+        <input type='url' id='image' name='image' onChange={(e) => setNewPost({...newPost, image: e.target.value})}></input><br/>
 
-        <input type='submit' value="Logga in"></input>
+        <input type='submit' value="Lägg till"></input>
     </form> 
     
     </>

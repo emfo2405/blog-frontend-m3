@@ -24,18 +24,18 @@ export interface Post {
     id: string,
     title: string,
     content: string,
-    image: File | null,
+    image: string,
     createdAt: string
 }
 
 export interface NewPost {
     title: string,
     content: string,
-    image: File | null
+    image: string
 }
 
 export interface ErrorData {
     title?: string,
-    description?: string
+    content?: string
 }
 
