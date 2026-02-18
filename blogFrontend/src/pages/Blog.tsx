@@ -45,7 +45,7 @@ function Blog() {
     <h2>Blogginlägg</h2>
     { loading && <p>Läser in blogginlägg...</p>}
     {post.map((post) => (
-       <BlogPost key={post.id} title={post.title} image={post.image} content={post.content} created={post.createdAt} />
+       <BlogPost id={post.id} title={post.title} image={post.image} content={post.content} created={post.createdAt} getPosts={getPosts}/>
     ))}
     <Outlet />
     </>
