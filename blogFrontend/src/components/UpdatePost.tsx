@@ -17,17 +17,18 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
     const [show, setShow] = useState<boolean>(false);
 
     const token = localStorage.getItem("token");
+  
 
     //Funktion för att uppdatera post
     const updateBlogPost = async (updateBlogPost: NewPost) => {
         try { 
-            const resp = await fetch(`https://blogposts-frontendm3.onrender.com/api/post/${id}`, {
+            const resp = await fetch(`https://blogposts-frontendm3.onrender.com/api/post/${id}/`, {
                 method: "PATCH",
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(newPost)
+                body: JSON.stringify(updateBlogPost)
                 });
 
 
@@ -38,6 +39,7 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
                 }
 
             } catch(error) {
+                console.error(error);
                 new Error;
             };
 
