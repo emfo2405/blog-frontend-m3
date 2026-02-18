@@ -1,3 +1,4 @@
+import { useAuth } from "../context/AuthContext";
 import type { NewPost } from "../types/auth.types"
 import { useState } from "react";
 
@@ -15,6 +16,7 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
 
     const [error, setError] = useState<string | null>(null);
     const [show, setShow] = useState<boolean>(false);
+    const { user } = useAuth();
 
     const token = localStorage.getItem("token");
   
@@ -53,7 +55,8 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
 
   return (
 <>
-<button id="updatePost" onClick={() => setShow(setting => !setting)}>{show ? "Dölj" : "Uppdatera inlägg"}</button>
+{user && (<>
+    <button id="updatePost" onClick={() => setShow(setting => !setting)}>{show ? "Dölj" : "Uppdatera inlägg"}</button>
 
 {show &&
         <form onSubmit={updateForm}>
@@ -69,6 +72,8 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
 
         <input type='submit' value="Uppdatera"></input>
     </form> }
+</>)}
+
 </>
   )
 }
