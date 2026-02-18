@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Admin from "./pages/Admin";
 import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 import Login from "./pages/LogIn";
 import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import ProtectedRoute from "./components/ProtectedRoutes";
+import ShowPost from "./pages/ShowPost";
+
 
 const router = createBrowserRouter([
     {
@@ -19,11 +20,10 @@ const router = createBrowserRouter([
     {
         path: "/blog",
         element: <Blog />,
-        children: [{
-            path: ":id",
-            element: <BlogPost />
-        }
-        ]
+    },
+    {
+        path: "/blog/:id",
+        element: <ShowPost />,
     },
     {
         path: "/admin",

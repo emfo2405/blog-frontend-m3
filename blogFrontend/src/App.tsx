@@ -1,6 +1,11 @@
 import { useState } from 'react'
+import type { Post } from './types/auth.types';
 
 import './App.css'
+import { RouterProvider } from 'react-router-dom';
+
+
+
 
 function App() {
 

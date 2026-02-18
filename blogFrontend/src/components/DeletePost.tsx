@@ -1,4 +1,4 @@
-
+import { useAuth } from "../context/AuthContext";
 
 interface DeleteProps {
     id:number,
@@ -8,6 +8,8 @@ interface DeleteProps {
 const token = localStorage.getItem("token");
 
 function DeletePost({id, getPosts}: DeleteProps) {
+
+const { user } = useAuth();
 
 const deletePost = async (id:number) => {
     try {
@@ -31,7 +33,10 @@ const deletePost = async (id:number) => {
 
   return (
 <>
-    <button onClick={() => deletePost(id)}>Radera inlägg</button>
+{user && (<>
+<button onClick={() => deletePost(id)}>Radera inlägg</button>
+ </>)}
+    
 </>
   )
 }
