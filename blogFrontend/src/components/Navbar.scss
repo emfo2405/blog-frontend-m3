@@ -1,0 +1,65 @@
+$main-color: rgb(189, 163, 112);
+$contrast-color: blue;
+$logout: rgb(125, 52, 52);
+
+.menu {
+    border-bottom: 3px solid $main-color;
+    margin-top: 30px;
+
+    ul {
+        display: flex;
+        flex-direction: row;
+        gap: 15px;
+        list-style-type: none;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    a, button {
+        padding: 15px;
+        border-radius: 20px;
+        color: black;
+        text-decoration: none;
+        background: none;
+        border: none;
+    
+
+        &:hover {
+            background-color: lighten($main-color, 20%);
+            cursor: pointer;
+        }
+    }
+
+    .active {
+        text-decoration: underline;
+        text-underline-offset: 5px;
+        color: rgb(138, 122, 117);
+    }
+
+    button.logout {
+        background-color: $logout;
+        padding: 10px;
+        margin-top: -7px;
+        margin-left: auto;
+        color: white;
+
+        &:hover{
+            background-color: darken($logout, 10%);
+        }
+        
+    }
+
+    #logout-placement{
+        margin-left: auto;
+        margin-right: 30px;
+
+    }
+
+}
+
+.headerImg {
+    width: 100%;
+}
+
