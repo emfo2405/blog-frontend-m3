@@ -1,6 +1,6 @@
 import Navbar from "./navbar"
 import { Outlet } from "react-router-dom"
-
+import './Layout.scss'
 
 function Layout() {
 
@@ -10,7 +10,7 @@ function Layout() {
 <main>
 <Outlet />
 </main>
-<footer>Emma Forsmalm, moment 3</footer>
+<footer>Emma Forsmalm <br /> Moment 3</footer>
 </>
   )
 }

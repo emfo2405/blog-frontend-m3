@@ -1,0 +1,10 @@
+$main-color: rgb(189, 163, 112);
+$contrast-color: blue;
+$logout: rgb(125, 52, 52);
+
+footer {
+    background-color: lighten($main-color, 20%);
+    padding: 10px;
+    text-align: center;
+
+}
