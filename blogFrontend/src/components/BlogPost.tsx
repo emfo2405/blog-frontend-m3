@@ -1,8 +1,8 @@
-import ShowPost from "../pages/ShowPost";
+
 import DeletePost from "./DeletePost";
 import UpdatePost from "./UpdatePost";
 import { Link } from "react-router-dom";
-
+import './BlogPost.scss';
 
 
 type PostProps = {
@@ -23,20 +23,28 @@ return (
 
         <div className='post' key={id}>
             <h2>{title}</h2>
+            <div className="postLayout">
             <img className='blogImg' src={image}></img>
+            <div>
             <p className='lineheight'>{content}</p>
-            <p className='lineheight'>{new Date(created).toLocaleDateString("sv-SE")}</p>
+            <p className='date'>{new Date(created).toLocaleDateString("sv-SE")}</p>
 
-            <UpdatePost id={id} title={title} content={content} image={image} getPosts={getPosts}/>
-            <DeletePost id={id} getPosts={getPosts}/>
-            {showButtons && (
+
+           {showButtons && (
                 <>
-            <Link to={`/blog/${id}`}>Visa hela inlägget</Link>
+            <Link to={`/blog/${id}`} className="showPost">Visa hela inlägget</Link>
 
 
             </>
+
             )}
 
+            <div>
+            <UpdatePost id={id} title={title} content={content} image={image} getPosts={getPosts}/>
+            <DeletePost id={id} getPosts={getPosts}/>
+            </div>
+            </div>
+</div>
         </div>
 
 );

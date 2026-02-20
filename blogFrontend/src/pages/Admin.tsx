@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { Post, NewPost, ErrorData } from '../types/auth.types'
 import { useNavigate } from 'react-router-dom';
-
+import './Admin.scss'
 
 
 function Admin() {

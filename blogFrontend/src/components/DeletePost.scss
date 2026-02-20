@@ -1,0 +1,18 @@
+$main-color: rgb(189, 163, 112);
+$contrast-color: blue;
+$logout: rgb(125, 52, 52);
+$button-color: rgb(249, 243, 234);
+
+.deleteButton {
+        background-color: lighten($logout, 30%);
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    border: 2px solid darken($main-color, 20%);
+    margin-left: 10px;
+
+    &:hover {
+        background-color: $logout;
+        cursor: pointer;
+    }
+}

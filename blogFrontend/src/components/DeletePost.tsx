@@ -1,4 +1,5 @@
 import { useAuth } from "../context/AuthContext";
+import './DeletePost.scss'
 
 interface DeleteProps {
     id:number,
@@ -34,7 +35,7 @@ const deletePost = async (id:number) => {
   return (
 <>
 {user && (<>
-<button onClick={() => deletePost(id)}>Radera inlägg</button>
+<button className="deleteButton" onClick={() => deletePost(id)}>Radera inlägg</button>
  </>)}
     
 </>

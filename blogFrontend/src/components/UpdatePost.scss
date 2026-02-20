@@ -1,0 +1,38 @@
+$main-color: rgb(189, 163, 112);
+$contrast-color: blue;
+$logout: rgb(125, 52, 52);
+$button-color: rgb(249, 243, 234);
+
+#updatePost {
+    background-color: rgb(249, 243, 234);
+    padding: 8px;
+    border-radius: 10px;
+    border: none;
+    border: 2px solid darken($main-color, 20%);
+    margin-top: 20px;
+
+    &:hover {
+        background-color: darken($button-color, 20%);
+        cursor: pointer;
+    }
+}
+
+.updateForm {
+    margin-top: 10px;
+
+    input {
+        background-color: $button-color;
+        border: none;
+        padding: 7px;
+        border-bottom: 2px solid darken($main-color, 20%);
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+}
+
+.formButton {
+    &:hover {
+        background-color: darken($button-color, 20%);
+        cursor: pointer;
+    }
+}

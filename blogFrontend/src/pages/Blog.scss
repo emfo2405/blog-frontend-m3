@@ -1,0 +1,17 @@
+.loading {
+    text-align: center;
+    color: rgb(78, 78, 78);
+}
+
+#blog {
+    margin: 0 auto;
+    h1{
+        text-align: center;
+    }
+}
+
+.postPosition {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

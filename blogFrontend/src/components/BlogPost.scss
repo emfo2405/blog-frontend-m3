@@ -1,0 +1,36 @@
+$main-color: rgb(189, 163, 112);
+$contrast-color: blue;
+$logout: rgb(125, 52, 52);
+
+.post {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    width: 400px;
+    background-color: lighten($main-color, 20%);
+    img {
+        width: 100px;
+        margin: 20px;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    .date {
+        color: darken($main-color, 30%);
+    }
+
+    .showPost {
+        color: darken($main-color, 30%);
+        text-underline-offset: 5px;
+
+        &:hover {
+            text-underline-offset: 10px;
+        }
+    }
+}
+
+.postLayout {
+    display: flex;
+}

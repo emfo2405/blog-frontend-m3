@@ -1,6 +1,7 @@
 import { useAuth } from "../context/AuthContext";
 import type { NewPost } from "../types/auth.types"
 import { useState } from "react";
+import './UpdatePost.scss'
 
 interface UpdateProps {
     id: number,
@@ -59,7 +60,7 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
     <button id="updatePost" onClick={() => setShow(setting => !setting)}>{show ? "Dölj" : "Uppdatera inlägg"}</button>
 
 {show &&
-        <form onSubmit={updateForm}>
+        <form className="updateForm" onSubmit={updateForm}>
 
         <label htmlFor='title'>Titel:</label><br/>
         <input type='text' id='title' name='title' required value={newPost.title} onChange={(e) => setNewPost({...newPost, title: e.target.value})}></input><br/>
@@ -70,7 +71,7 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
         <label htmlFor='image'>Bild:</label><br/>
         <input type='url' id='image' name='image' onChange={(e) => setNewPost({...newPost, image: e.target.value})}></input><br/>
 
-        <input type='submit' value="Uppdatera"></input>
+        <input className="formButton" type='submit' value="Uppdatera"></input>
     </form> }
 </>)}
 

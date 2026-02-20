@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { useEffect } from 'react'
 import type {Post} from "../types/auth.types"
 import BlogPost from '../components/BlogPost';
-
+import './Blog.scss'
 
 function Blog() {
 
@@ -40,15 +40,16 @@ function Blog() {
 
 
   return (
-    <>
+    <div id='blog'>
     <h1>Välkommen till bloggen!</h1>
-    <h2>Blogginlägg</h2>
-    { loading && <p>Läser in blogginlägg...</p>}
+    { loading && <p className="loading">Läser in blogginlägg...</p>}
+    <div className='postPosition'>
     {post.map((post) => (
        <BlogPost key={post.id} id={post.id} title={post.title} image={post.image} content={post.content} created={post.createdAt} getPosts={getPosts}/>
     ))}
     <Outlet />
-    </>
+    </div>
+    </div>
   )
 }
 
