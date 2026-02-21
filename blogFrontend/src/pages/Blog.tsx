@@ -45,7 +45,7 @@ function Blog() {
     { loading && <p className="loading">Läser in blogginlägg...</p>}
     <div className='postPosition'>
     {post.map((post) => (
-       <BlogPost key={post.id} id={post.id} title={post.title} image={post.image} content={post.content} created={post.createdAt} getPosts={getPosts}/>
+       <BlogPost key={post.id} id={post.id} title={post.title} image={post.image} content={post.content} excerpt={post.excerpt} created={post.createdAt} getPosts={getPosts} showFullPost={false}/>
     ))}
     <Outlet />
     </div>

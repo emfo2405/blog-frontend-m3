@@ -9,7 +9,7 @@ function Admin() {
   const [error, setError] = useState<ErrorData>({});
   const navigate = useNavigate();
 
-const [newPost, setNewPost] = useState<NewPost>({title:"", content:"", image:""})
+const [newPost, setNewPost] = useState<NewPost>({title:"", content:"", excerpt: "", image:""})
 const token = localStorage.getItem("token");
 
 const validateInput = ((data: NewPost) => {
@@ -22,6 +22,10 @@ const validateInput = ((data: NewPost) => {
 
   if(data.content.length <3) {
     validationErrors.content = "Skriv ett innehåll längre än 3 tecken!";
+  }
+
+    if(data.excerpt.length <3) {
+    validationErrors.content = "Skriv ett utdrag längre än 3 tecken!";
   }
 
   return validationErrors;
@@ -38,7 +42,7 @@ const submitForm = ((event:any) => {
     setError({});
 
     addPost(newPost);
-    setNewPost({title:"", content:"", image:""
+    setNewPost({title:"", content:"", excerpt:"", image:""
     });
   }
 })
@@ -70,9 +74,9 @@ const submitForm = ((event:any) => {
   
 
   return (
-    <>
-    <h1>Välkommen till Admin!</h1>
-    <h2>Skapa ett nytt inlägg</h2>
+    <div className='admincontent'>
+    <h1>Välkommen till Adminsidan!</h1>
+    <h2>Skapa ett nytt inlägg här</h2>
         <form className='adminForm' onSubmit={submitForm}>
         {error.title && (
             <p>{error.title}</p>
@@ -81,7 +85,10 @@ const submitForm = ((event:any) => {
         <input type='text' id='title' name='title' required value={newPost.title} onChange={(e) => setNewPost({...newPost, title: e.target.value})}></input><br/>
 
         <label htmlFor='content'>Inlägg:</label><br/>
-        <input type='text' id='content' name='content' required value={newPost.content} onChange={(e) => setNewPost({...newPost, content: e.target.value})}></input><br/>
+        <textarea id='content' name='content' required value={newPost.content} onChange={(e) => setNewPost({...newPost, content: e.target.value})}></textarea><br/>
+
+        <label htmlFor='excerpt'>Utdrag:</label><br/>
+        <input type='text' id='excerpt' name='excerpt' required value={newPost.excerpt} onChange={(e) => setNewPost({...newPost, excerpt: e.target.value})}></input><br/>
 
         <label htmlFor='image'>Bild:</label><br/>
         <input type='url' id='image' name='image' onChange={(e) => setNewPost({...newPost, image: e.target.value})}></input><br/>
@@ -89,7 +96,7 @@ const submitForm = ((event:any) => {
         <input className='adminButton' type='submit' value="Lägg till"></input>
     </form> 
     
-    </>
+    </div>
   )
 }
 

@@ -24,6 +24,7 @@ export interface Post {
     id: number,
     title: string,
     content: string,
+    excerpt: string,
     image: string,
     createdAt: string
 }
@@ -31,6 +32,7 @@ export interface Post {
 export interface NewPost {
     title: string,
     content: string,
+    excerpt: string,
     image: string
 }
 

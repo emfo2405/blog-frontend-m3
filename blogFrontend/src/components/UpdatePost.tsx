@@ -7,13 +7,14 @@ interface UpdateProps {
     id: number,
     title: string, 
     content: string, 
+    excerpt: string,
     image: string,
     getPosts: () => Promise<void>
 }
 
 
-function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
-    const [newPost, setNewPost] = useState<NewPost>({title: title, content: content, image:image})
+function UpdatePost({id, title, content, excerpt, image, getPosts} : UpdateProps) {
+    const [newPost, setNewPost] = useState<NewPost>({title: title, content: content, excerpt: excerpt, image:image})
 
     const [error, setError] = useState<string | null>(null);
     const [show, setShow] = useState<boolean>(false);
@@ -66,7 +67,10 @@ function UpdatePost({id, title, content, image, getPosts} : UpdateProps) {
         <input type='text' id='title' name='title' required value={newPost.title} onChange={(e) => setNewPost({...newPost, title: e.target.value})}></input><br/>
 
         <label htmlFor='content'>Inlägg:</label><br/>
-        <input type='text' id='content' name='content' required value={newPost.content} onChange={(e) => setNewPost({...newPost, content: e.target.value})}></input><br/>
+        <textarea id='content' name='content' required value={newPost.content} onChange={(e) => setNewPost({...newPost, content: e.target.value})}></textarea><br/>
+
+        <label htmlFor='excerpt'>Utdrag:</label><br/>
+        <input type='text' id='excerpt' name='excerpt' required value={newPost.excerpt} onChange={(e) => setNewPost({...newPost, excerpt: e.target.value})}></input><br/>
 
         <label htmlFor='image'>Bild:</label><br/>
         <input type='url' id='image' name='image' onChange={(e) => setNewPost({...newPost, image: e.target.value})}></input><br/>

@@ -7,17 +7,31 @@ $button-color: rgb(249, 243, 234);
     margin-top: 10px;
     display: block;
     margin: 0 auto;
-    width: 100%;
+    max-width: 500px;
 
-    input {
+    input, textarea {
         text-align: center;
         background-color: $button-color;
         border: none;
         padding: 7px;
         border-bottom: 2px solid darken($main-color, 20%);
         border-radius: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        margin-top: 10px;
         width: 500px;
+    }
+
+    textarea {
+        height: 80px;
+        text-align: left;
+    }
+
+    .adminButton {
+        width: 150px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 120px;
+        margin-top: 20px;
     }
 }
 
@@ -25,5 +39,11 @@ $button-color: rgb(249, 243, 234);
     &:hover {
         background-color: darken($button-color, 20%);
         cursor: pointer;
+    }
+}
+
+.admincontent {
+    h1, h2 {
+        text-align: center;
     }
 }

@@ -14,5 +14,6 @@ $button-color: rgb(249, 243, 234);
     &:hover {
         background-color: $logout;
         cursor: pointer;
+        color: white;
     }
 }

@@ -9,14 +9,16 @@ type PostProps = {
     id: number,
     title: string;
     content: string;
+    excerpt: string;
     image: string;
     created: string;
     getPosts: () => Promise<void>;
     showButtons?: boolean;
+    showFullPost?: boolean;
 };
 
 
-function BlogPost({id, title, image, content, created, getPosts, showButtons = true}: PostProps) {
+function BlogPost({id, title, image, content, excerpt, created, getPosts, showButtons = true, showFullPost = false}: PostProps) {
 
 
 return (
@@ -25,8 +27,8 @@ return (
             <h2>{title}</h2>
             <div className="postLayout">
             <img className='blogImg' src={image}></img>
-            <div>
-            <p className='lineheight'>{content}</p>
+            <div className="postContent">
+            <p className='lineheight'>{showFullPost ? content : excerpt}</p>
             <p className='date'>{new Date(created).toLocaleDateString("sv-SE")}</p>
 
 
@@ -40,7 +42,7 @@ return (
             )}
 
             <div>
-            <UpdatePost id={id} title={title} content={content} image={image} getPosts={getPosts}/>
+            <UpdatePost id={id} title={title} content={content} excerpt={excerpt} image={image} getPosts={getPosts}/>
             <DeletePost id={id} getPosts={getPosts}/>
             </div>
             </div>
