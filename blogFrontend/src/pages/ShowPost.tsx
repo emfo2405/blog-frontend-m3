@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import type {Post} from "../types/auth.types"
 import BlogPost from '../components/BlogPost';
 import {useParams} from 'react-router-dom'
-
+import './ShowPost.scss'
 
 function ShowPost() {
 
@@ -42,13 +42,13 @@ function ShowPost() {
 
 
   return (
-    <>
+    <div className='onePostDiv'>
     { loading && <p>Läser in blogginlägg...</p>}
     {post && (
        <BlogPost key={post.id} id={post.id} title={post.title} image={post.image} content={post.content} excerpt={post.excerpt} created={post.createdAt} getPosts={async () => {}} showButtons={false} showFullPost={true}/>
     )}
     <Outlet />
-    </>
+    </div>
   )
 }
 

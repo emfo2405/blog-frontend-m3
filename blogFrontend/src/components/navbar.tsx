@@ -28,7 +28,7 @@ function Navbar() {
               </li>
         </ul>
       </div>
-      <img className='headerImg' src='/blogHeader.jpg' alt='Bild av ett tåg som åker över en bro'></img>
+      <img className='headerImg' src='/blogHeaderImg.jpg' alt='Bild av ett tåg som åker över en bro'></img>
 
     </header>
   )

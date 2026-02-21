@@ -10,7 +10,10 @@ $bad-script: "Bad Script", cursive;
     padding: 20px;
     margin: 20px;
     border-radius: 20px;
-    width: 700px;
+    width: 70%;
+    max-width: 700px;
+    display: block;
+    margin: 0 auto;
 
     img {
         width: 120px;
@@ -23,7 +26,8 @@ $bad-script: "Bad Script", cursive;
 
     .postContent {
         margin: 0 auto;
-        width: 500px;
+        width: 100%;
+        max-width: 500px;
         padding-bottom: 20px;
         border-bottom: 2px solid $main-color;
         font-family: $poppins;
@@ -52,3 +56,4 @@ $bad-script: "Bad Script", cursive;
 .postLayout {
     display: flex;
 }
+
