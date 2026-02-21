@@ -73,7 +73,7 @@ const submitForm = ((event:any) => {
     <>
     <h1>Välkommen till Admin!</h1>
     <h2>Skapa ett nytt inlägg</h2>
-        <form onSubmit={submitForm}>
+        <form className='adminForm' onSubmit={submitForm}>
         {error.title && (
             <p>{error.title}</p>
         )}
@@ -86,7 +86,7 @@ const submitForm = ((event:any) => {
         <label htmlFor='image'>Bild:</label><br/>
         <input type='url' id='image' name='image' onChange={(e) => setNewPost({...newPost, image: e.target.value})}></input><br/>
 
-        <input type='submit' value="Lägg till"></input>
+        <input className='adminButton' type='submit' value="Lägg till"></input>
     </form> 
     
     </>

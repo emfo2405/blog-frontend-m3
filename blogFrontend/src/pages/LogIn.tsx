@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import './Login.scss'
 
 function Login() {
     const [username, setUsername] = useState('');
@@ -32,9 +33,9 @@ function Login() {
 
   return (
     <>
-    <h1>Logga in med dina uppgifter!</h1>
+    <h1 className='loginTitle'>Logga in med dina uppgifter!</h1>
 
-    <form onSubmit={handleSubmit}>
+    <form className="loginForm" onSubmit={handleSubmit}>
         {error && (
             <p>{error}</p>
         )}
@@ -44,7 +45,7 @@ function Login() {
         <label htmlFor='password'>Lösenord:</label><br/>
         <input type='password' id='password' name='password' required value={password} onChange={(e) => setPassword(e.target.value)}></input><br/>
 
-        <input type='submit' value="Logga in"></input>
+        <input className='loginButton' type='submit' value="Logga in"></input>
     </form>
     </>
   )

@@ -3,11 +3,11 @@ $contrast-color: blue;
 $logout: rgb(125, 52, 52);
 $button-color: rgb(249, 243, 234);
 
-.adminForm {
+.loginForm {
     margin-top: 10px;
     display: block;
     margin: 0 auto;
-    width: 100%;
+    max-width: 500px;
 
     input {
         text-align: center;
@@ -16,14 +16,27 @@ $button-color: rgb(249, 243, 234);
         padding: 7px;
         border-bottom: 2px solid darken($main-color, 20%);
         border-radius: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 15px;
+        margin-top: 10px;
         width: 500px;
+    }
+
+    .loginButton {
+        width: 100px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 100px;
+        margin-top: 20px;
     }
 }
 
-.adminButton {
+.loginButton {
     &:hover {
         background-color: darken($button-color, 20%);
         cursor: pointer;
     }
+}
+
+.loginTitle {
+    text-align: center;
 }
