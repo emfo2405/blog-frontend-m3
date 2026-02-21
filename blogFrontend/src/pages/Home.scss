@@ -2,12 +2,18 @@ $main-color: rgb(189, 163, 112);
 $contrast-color: blue;
 $logout: rgb(125, 52, 52);
 
+$poppins: "Poppins", sans-serif;
+$bevan: "Bevan", serif;
+$bad-script: "Bad Script", cursive;
+
 #introtext {
     width: 400px;
     margin: 0 auto;
     margin-bottom: 300px;
+    font-family: $poppins;
 }
 
 #introtitle {
     text-align: center;
+    font-family: $bad-script;
 }

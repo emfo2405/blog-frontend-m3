@@ -2,9 +2,14 @@ $main-color: rgb(189, 163, 112);
 $contrast-color: blue;
 $logout: rgb(125, 52, 52);
 
+$poppins: "Poppins", sans-serif;
+$bevan: "Bevan", serif;
+$bad-script: "Bad Script", cursive;
+
 .menu {
     border-bottom: 3px solid $main-color;
     margin-top: 30px;
+    font-family: $poppins;
 
     ul {
         display: flex;

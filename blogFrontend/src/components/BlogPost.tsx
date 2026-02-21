@@ -25,8 +25,9 @@ return (
 
         <div className='post' key={id}>
             <h2>{title}</h2>
-            <div className="postLayout">
+            
             <img className='blogImg' src={image}></img>
+            <div className="postLayout">
             <div className="postContent">
             <p className='lineheight'>{showFullPost ? content : excerpt}</p>
             <p className='date'>{new Date(created).toLocaleDateString("sv-SE")}</p>

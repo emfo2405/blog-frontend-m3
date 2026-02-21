@@ -3,11 +3,16 @@ $contrast-color: blue;
 $logout: rgb(125, 52, 52);
 $button-color: rgb(249, 243, 234);
 
+$poppins: "Poppins", sans-serif;
+$bevan: "Bevan", serif;
+$bad-script: "Bad Script", cursive;
+
 .loginForm {
     margin-top: 10px;
     display: block;
     margin: 0 auto;
     max-width: 500px;
+    font-family: $poppins;
 
     input {
         text-align: center;
@@ -39,4 +44,5 @@ $button-color: rgb(249, 243, 234);
 
 .loginTitle {
     text-align: center;
+    font-family: $bad-script;
 }

@@ -43,7 +43,6 @@ function ShowPost() {
 
   return (
     <>
-    <h2>Blogginlägg</h2>
     { loading && <p>Läser in blogginlägg...</p>}
     {post && (
        <BlogPost key={post.id} id={post.id} title={post.title} image={post.image} content={post.content} excerpt={post.excerpt} created={post.createdAt} getPosts={async () => {}} showButtons={false} showFullPost={true}/>

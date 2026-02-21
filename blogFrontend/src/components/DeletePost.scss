@@ -3,6 +3,10 @@ $contrast-color: blue;
 $logout: rgb(125, 52, 52);
 $button-color: rgb(249, 243, 234);
 
+$poppins: "Poppins", sans-serif;
+$bevan: "Bevan", serif;
+$bad-script: "Bad Script", cursive;
+
 .deleteButton {
         background-color: lighten($logout, 30%);
     padding: 8px;
@@ -10,6 +14,7 @@ $button-color: rgb(249, 243, 234);
     border: none;
     border: 2px solid darken($main-color, 20%);
     margin-left: 10px;
+    font-family: $poppins;
 
     &:hover {
         background-color: $logout;

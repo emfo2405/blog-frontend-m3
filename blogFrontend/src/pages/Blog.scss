@@ -1,3 +1,7 @@
+$poppins: "Poppins", sans-serif;
+$bevan: "Bevan", serif;
+$bad-script: "Bad Script", cursive;
+
 .loading {
     text-align: center;
     color: rgb(78, 78, 78);
@@ -7,6 +11,7 @@
     margin: 0 auto;
     h1{
         text-align: center;
+        font-family: $bad-script;
     }
 }
 
