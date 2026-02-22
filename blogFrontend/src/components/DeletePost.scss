@@ -22,3 +22,10 @@ $bad-script: "Bad Script", cursive;
         color: white;
     }
 }
+
+.errorMessage {
+    text-align: center;
+    background-color: rgb(223, 176, 176);
+    border-radius: 10px;
+    padding: 5px;
+}

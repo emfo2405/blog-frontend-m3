@@ -49,6 +49,12 @@ const submitForm = ((event:any) => {
 
   const addPost = async (newPost: NewPost) => {
     try {
+        const token = localStorage.getItem("token");
+
+        if(!token) {
+            throw new Error("Ingen token hittades");
+        }
+        
       const resp = await fetch("https://blogposts-frontendm3.onrender.com/api/post/", {
         method: 'POST',
         headers: {

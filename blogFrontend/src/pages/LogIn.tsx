@@ -37,7 +37,7 @@ function Login() {
 
     <form className="loginForm" onSubmit={handleSubmit}>
         {error && (
-            <p>{error}</p>
+            <p className='errorMessage'>{error}</p>
         )}
         <label htmlFor='username'>Användarnamn:</label><br/>
         <input type='text' id='username' name='username' required value={username} onChange={(e) => setUsername(e.target.value)}></input><br/>

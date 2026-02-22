@@ -7,7 +7,7 @@ interface DeleteProps {
     getPosts: () => void;
 }
 
-const token = localStorage.getItem("token");
+
 
 function DeletePost({id, getPosts}: DeleteProps) {
     const [error, setError] = useState<string | null>(null);
@@ -16,6 +16,12 @@ const { user } = useAuth();
 
 const deletePost = async (id:number) => {
     try {
+        const token = localStorage.getItem("token");
+
+        if(!token) {
+            throw new Error("Ingen token hittades");
+        }
+
         const resp = await fetch(`https://blogposts-frontendm3.onrender.com/api/post/${id}/`, {
             method: "DELETE",
             headers: {

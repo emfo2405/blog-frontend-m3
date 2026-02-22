@@ -20,12 +20,17 @@ function UpdatePost({id, title, content, excerpt, image, getPosts} : UpdateProps
     const [show, setShow] = useState<boolean>(false);
     const { user } = useAuth();
 
-    const token = localStorage.getItem("token");
   
 
     //Funktion för att uppdatera post
     const updateBlogPost = async (updateBlogPost: NewPost) => {
         try { 
+        const token = localStorage.getItem("token");
+
+        if(!token) {
+            throw new Error("Ingen token hittades");
+        }
+
             const resp = await fetch(`https://blogposts-frontendm3.onrender.com/api/post/${id}/`, {
                 method: "PATCH",
                 headers: {
