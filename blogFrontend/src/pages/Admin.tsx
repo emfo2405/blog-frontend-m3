@@ -5,7 +5,7 @@ import './Admin.scss'
 
 
 function Admin() {
-  const [post, setPost] = useState<Post[] | []>([]);
+  const [, setPost] = useState<Post[] | []>([]);
   const [error, setError] = useState<ErrorData>({});
   const navigate = useNavigate();
 
