@@ -6,6 +6,11 @@ import './Navbar.scss'
 
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  }
 
   const {user, logout} = useAuth();
   const navigate = useNavigate();
@@ -18,7 +23,8 @@ function Navbar() {
   return (
     <header>
       <div className='menu'>
-                <ul>
+        <div className='bigMenu'>
+            <ul>
             <li><NavLink className={({ isActive }) => isActive ? "navLink active" : "navLink"} to="/">Hem</NavLink></li>
             <li><NavLink className={({ isActive }) => isActive ? "navLink active" : "navLink"} to="/blog">Blogg</NavLink></li>
             <li><NavLink className={({ isActive }) => isActive ? "navLink active" : "navLink"} to="/admin">Admin</NavLink></li>
@@ -27,7 +33,35 @@ function Navbar() {
               }
               </li>
         </ul>
+        </div>
+
+        <div className='smallMenu'>
+                {!menuOpen && (
+                <span className="material-symbols-outlined menu-icon" onClick={toggleMenu}>menu</span>
+                )}
+
+                {menuOpen && (
+                  <span className="material-symbols-outlined close-icon" onClick={toggleMenu}>close</span>
+                )}
+
+          {menuOpen &&(
+     <ul className='smallMenuUl'>
+            <li><NavLink className={({ isActive }) => isActive ? "navLink active" : "navLink"} to="/">Hem</NavLink></li>
+            <li><NavLink className={({ isActive }) => isActive ? "navLink active" : "navLink"} to="/blog">Blogg</NavLink></li>
+            <li><NavLink className={({ isActive }) => isActive ? "navLink active" : "navLink"} to="/admin">Admin</NavLink></li>
+            <li id="logout-placement">{
+              !user ? <NavLink className={({ isActive }) => isActive ? "navLink active logout" : "navLink logout"} to="/login">Logga in</NavLink> : <button className='logout' onClick={handleLogout}>Logga ut</button>
+              }
+              </li>
+        </ul>            
+          )}
+          </div>
+
       </div>
+
+
+
+
       <img className='headerImg' src='/blogHeaderImg.jpg' alt='Bild av ett tåg som åker över en bro'></img>
 
     </header>

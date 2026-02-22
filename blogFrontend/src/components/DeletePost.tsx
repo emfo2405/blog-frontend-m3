@@ -1,4 +1,5 @@
 import { useAuth } from "../context/AuthContext";
+import { useState } from "react";
 import './DeletePost.scss'
 
 interface DeleteProps {
@@ -9,6 +10,7 @@ interface DeleteProps {
 const token = localStorage.getItem("token");
 
 function DeletePost({id, getPosts}: DeleteProps) {
+    const [error, setError] = useState<string | null>(null);
 
 const { user } = useAuth();
 
@@ -28,7 +30,8 @@ const deletePost = async (id:number) => {
             getPosts();
         }
     } catch(error) {
-        throw error;
+        setError("Något gick fel med att radera inlägget...");
+        console.error("Något gick fel: ", error);
     }
 }
 
@@ -37,6 +40,9 @@ const deletePost = async (id:number) => {
 {user && (<>
 <button className="deleteButton" onClick={() => deletePost(id)}>Radera inlägg</button>
  </>)}
+ {
+    error && <p className="errorMessage">{error}</p>
+ }
     
 </>
   )

@@ -10,6 +10,11 @@ $bad-script: "Bad Script", cursive;
     border-bottom: 3px solid $main-color;
     margin-top: 30px;
     font-family: $poppins;
+    position: relative;
+
+    .hamburger {
+        display: none;
+    }
 
     ul {
         display: flex;
@@ -68,3 +73,31 @@ $bad-script: "Bad Script", cursive;
     width: 100%;
 }
 
+.smallMenu {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    .smallMenu {
+        display: block;
+        margin-left: 20px;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button.logout {
+            margin-left: 0;
+            width: 100%;
+            text-align: center;
+        }
+
+    }
+
+    .bigMenu {
+        display: none;
+    }
+}
