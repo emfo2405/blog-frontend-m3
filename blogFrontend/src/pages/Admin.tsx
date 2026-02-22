@@ -10,7 +10,6 @@ function Admin() {
   const navigate = useNavigate();
 
 const [newPost, setNewPost] = useState<NewPost>({title:"", content:"", excerpt: "", image:""})
-const token = localStorage.getItem("token");
 
 const validateInput = ((data: NewPost) => {
 
@@ -54,7 +53,7 @@ const submitForm = ((event:any) => {
         if(!token) {
             throw new Error("Ingen token hittades");
         }
-        
+
       const resp = await fetch("https://blogposts-frontendm3.onrender.com/api/post/", {
         method: 'POST',
         headers: {
