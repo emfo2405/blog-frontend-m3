@@ -34,7 +34,8 @@ function ShowPost() {
       }
 
     } catch(error){
-      throw error
+      console.error("Något gick fel: ", error);
+      setError("Något gick fel vid inläsning")
     }
   };
   getOnePost();
@@ -44,6 +45,7 @@ function ShowPost() {
   return (
     <div className='onePostDiv'>
     { loading && <p>Läser in blogginlägg...</p>}
+    {error && <p className='errorMessage'>{error}</p>}
     {post && (
        <BlogPost key={post.id} id={post.id} title={post.title} image={post.image} content={post.content} excerpt={post.excerpt} created={post.createdAt} getPosts={async () => {}} showButtons={false} showFullPost={true}/>
     )}

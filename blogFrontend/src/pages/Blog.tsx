@@ -34,7 +34,10 @@ function Blog() {
       }
 
     } catch(error){
-      throw error
+      console.error("Något gick fel: ", error);
+      setError("Något gick fel när listan skulle läsas in");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -43,6 +46,7 @@ function Blog() {
     <div id='blog'>
     <h1>Välkommen till bloggen!</h1>
     { loading && <p className="loading">Läser in blogginlägg...</p>}
+    {error && <p className='errorMessage'>{error}</p>}
     <div className='postPosition'>
     {post.map((post) => (
        <BlogPost key={post.id} id={post.id} title={post.title} image={post.image} content={post.content} excerpt={post.excerpt} created={post.createdAt} getPosts={getPosts} showFullPost={false}/>
