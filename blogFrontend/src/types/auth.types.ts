@@ -38,6 +38,7 @@ export interface NewPost {
 
 export interface ErrorData {
     title?: string,
-    content?: string
+    content?: string,
+    excerpt?: string
 }
 
