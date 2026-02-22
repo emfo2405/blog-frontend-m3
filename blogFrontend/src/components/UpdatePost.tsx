@@ -43,8 +43,8 @@ function UpdatePost({id, title, content, excerpt, image, getPosts} : UpdateProps
                 }
 
             } catch(error) {
-                console.error(error);
-                new Error;
+                console.error("Något gick fel: ", error);
+                setError("Något gick fel med att uppdatera");
             };
 
         }
@@ -76,7 +76,12 @@ function UpdatePost({id, title, content, excerpt, image, getPosts} : UpdateProps
         <input type='url' id='image' name='image' onChange={(e) => setNewPost({...newPost, image: e.target.value})}></input><br/>
 
         <input className="formButton" type='submit' value="Uppdatera"></input>
-    </form> }
+
+        {
+            error && <p className="errorMessage">{error}</p>
+        }
+    </form> 
+}
 </>)}
 
 </>
